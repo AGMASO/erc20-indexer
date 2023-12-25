@@ -14,7 +14,11 @@ import { Alchemy, Network, Utils } from 'alchemy-sdk';
 import { Fragment, useState } from 'react';
 import { createWeb3Modal, defaultConfig } from '@web3modal/ethers5/react';
 import { useWeb3Modal ,useWeb3ModalProvider, useWeb3ModalAccount, useDisconnect} from '@web3modal/ethers5/react'
-import { ethers, providers } from 'ethers';
+import { ethers} from 'ethers';
+
+
+
+
 
 
 // 1. Get projectId
@@ -49,10 +53,8 @@ function App() {
   const [ loading, setLoading] = useState(false);
 
   //initialize wallet
-  const { open} = useWeb3Modal();
-  const {disconnect } = useDisconnect()
   
-  const { address, chainId, isConnected } = useWeb3ModalAccount();
+  const {isConnected } = useWeb3ModalAccount();
   const { walletProvider } = useWeb3ModalProvider();
 
   async function getWalletTokenBalances(){
@@ -66,9 +68,9 @@ function App() {
     const signerAddress = await signer.getAddress();
 
     console.log(signerAddress);
-
+    
     const config = {
-      apiKey: 'pDnsHSqJomhXLGvW0BD406tousjSDigY',
+      apiKey:"<YOUR API>",
       network: Network.ETH_SEPOLIA,
     };
       // Set loading state to true
@@ -104,7 +106,7 @@ function App() {
   }
   async function getTokenBalance() {
     const config = {
-      apiKey: 'yPmFYP78UNG85nbUt9XfXJoLvrlvX9w5',
+      apiKey: "<Your api>",
       network: Network.ETH_MAINNET,
     };
 
